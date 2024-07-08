@@ -1,0 +1,5 @@
+# heroku-buildpack-solc-select/bin/detect
+#!/usr/bin/env bash
+
+echo "Solc Select Buildpack"
+exit 0

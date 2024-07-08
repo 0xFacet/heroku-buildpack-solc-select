@@ -1,0 +1,8 @@
+# heroku-buildpack-solc-select/bin/release
+#!/usr/bin/env bash
+
+cat <<EOF
+---
+config:
+  SOLC_VERSION: 0.8.1
+EOF
