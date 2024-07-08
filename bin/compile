@@ -5,16 +5,8 @@ BUILD_DIR=$1
 # Install solc-select using the pip3 provided by the Python buildpack
 $BUILD_DIR/.heroku/python/bin/pip3 install solc-select
 
-# Set a specific Solidity version using solc-select
-$BUILD_DIR/.heroku/python/bin/solc-select use 0.8.1 --always-install
-
-# Ensure the build directory bin is in PATH
-if [ ! -L $BUILD_DIR/.heroku/python/bin/solc ]; then
-  ln -s $BUILD_DIR/.solc-select/solc/0.8.1/solc $BUILD_DIR/.heroku/python/bin/solc
-fi
-
 # Ensure the build directory bin is in PATH
 mkdir -p $BUILD_DIR/.profile.d
-echo 'export PATH="$BUILD_DIR/.heroku/python/bin:$PATH"' > $BUILD_DIR/.profile.d/solc.sh
+echo 'export PATH="$HOME/.heroku/python/bin:$PATH"' > $BUILD_DIR/.profile.d/solc.sh
 
 echo "solc-select setup complete"
